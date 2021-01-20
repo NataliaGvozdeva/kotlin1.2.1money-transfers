@@ -16,11 +16,15 @@ fun main() {
     val cardDayLimit = 150_000 * 100
     val vkPayDayLimit = 15_000 * 100
 
+    val typeMasterMaestro = 1
+    val typeVisaMir = 2
+    val typeVKPay = 3
+
     /*!!!! Здесь можно подставлять подходящее значения !!!*/
     val transferType = 1 /*Mastercard,Maestro - 1; Visa,Мир - 2; VK Pay - 3;*/
     val currentExecutedAmount = amount1 /* <--- сумма перевода */
 
-    if (transferType != 3) {
+    if ((transferType == typeMasterMaestro)||(transferType == typeVisaMir)) {
         if (currentExecutedAmount < minCardAmount){
             println("Сумма перевода меньше допустимого значения.")
             return
@@ -32,7 +36,7 @@ fun main() {
             println("Перевод картой Mastercard, Maestro, Visa, Мир выполнится с комиссий: $commission копеек")
         }
     }
-    if (transferType == 3) {
+    if (transferType == typeVKPay) {
         if (currentExecutedAmount < minVkpayAmount){
              println("Сумма перевода меньше допустимого значения.")
              return
