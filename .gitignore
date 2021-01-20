@@ -1,0 +1,11 @@
+#игнорирование котлин элементов
+build
+.gradle
+.idea
+*.iml
+
+#игнорирование git элементов
+Thumbs.db
+tmp/
+/tmp/
+*.txt
