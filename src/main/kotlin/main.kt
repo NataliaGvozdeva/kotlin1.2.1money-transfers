@@ -6,6 +6,10 @@ fun main() {
 
     println("Введите сумму перевода в рублях")
     val currentExecutedAmount = readLine()!!.toInt() * 100
+    if (currentExecutedAmount <= 0){
+        println("Введена некорректная сумма. Операция отклонена.")
+        return
+    }
     println("Сумма перевода: $currentExecutedAmount")
 
     println("Введите сумму передыдущих переводов в текущем дне в рублях")
@@ -18,8 +22,8 @@ fun main() {
     println("Введите тип перевода: \nMastercard - 'mc',\nMaestro - 'mo',\nVisa - 'v',\nMir - 'm',\nVKPay - 'vk' ")
     val typeOfCardOrAccount: String? = readLine()
 
-    if ((currentExecutedAmount != null) && (currentDayAmount != null) &&
-        (currentMonthAmount != null) && (typeOfCardOrAccount != null)
+    if ((currentExecutedAmount != null) || (currentDayAmount != null) ||
+        (currentMonthAmount != null) || (typeOfCardOrAccount != null)
     ) {
 
         val fullNameOfTransferType = when (typeOfCardOrAccount) {
@@ -113,16 +117,27 @@ fun transferVisaMir(
     val cardMonthLimit = 600_000 * 100
     val cardVisaMirMinimum = 35 * 100
 
+    val fullCurrentDayAmount = currentDayAmount + currentExecutedAmount
+    val fullCurrentMonthAmount = currentMonthAmount + currentDayAmount + currentExecutedAmount
+
     when {
+        (fullCurrentDayAmount < 0) -> {
+            println("Арифметическая ошибка вычисления")
+            return -1
+        }
+        (fullCurrentMonthAmount < 0) -> {
+            println("Арифметическая ошибка вычисления")
+            return -1
+        }
         (currentExecutedAmount < cardVisaMirMinimum) -> {
             println("По карте $typeOfCardOrAccount сумма перевода меньше минимального лимита $cardVisaMirMinimum.")
             return -1
         }
-        ((currentDayAmount + currentExecutedAmount) > cardDayLimit) -> {
+        (fullCurrentDayAmount > cardDayLimit) -> {
             println("По карте $typeOfCardOrAccount превышен суточный лимит")
             return -1
         }
-        ((currentMonthAmount + currentDayAmount + currentExecutedAmount) > cardMonthLimit) -> {
+        (fullCurrentMonthAmount > cardMonthLimit) -> {
             println("По карте $typeOfCardOrAccount превышен месячный лимит")
             return -1
         }
@@ -150,12 +165,13 @@ fun transfer(
             currentDayAmount,
             currentExecutedAmount
         )
-        else -> checkVkPayLimits(
+        "VkPay" -> checkVkPayLimits(
             typeOfCardOrAccount,
             currentMonthAmount,
             currentDayAmount,
             currentExecutedAmount
         )
+        else -> -1
     }
     return comission
 }
