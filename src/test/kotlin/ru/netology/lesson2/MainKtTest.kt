@@ -8,7 +8,7 @@ class MainKtTest {
     @Test
     fun transfer_VkPay_Correct() {
         //arrange
-        val type = "VkPay"
+        val type = TypeOfCardOrAmountEnum.VKPAY
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -30,7 +30,7 @@ class MainKtTest {
     @Test
     fun transfer_VkPay_Zero() {
         //arrange
-        val type = "VkPay"
+        val type = TypeOfCardOrAmountEnum.VKPAY
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -51,7 +51,7 @@ class MainKtTest {
     @Test
     fun transfer_VkPay_outLimit_OnceLimit() {
         //arrange
-        val type = "VkPay"
+        val type = TypeOfCardOrAmountEnum.VKPAY
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -73,7 +73,7 @@ class MainKtTest {
     @Test
     fun transfer_VkPay_outLimit_MonthLimit() {
         //arrange
-        val type = "VkPay"
+        val type = TypeOfCardOrAmountEnum.VKPAY
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -95,7 +95,7 @@ class MainKtTest {
     @Test
     fun transfer_VkPay_outLimit_MonthLimit1() {
         //arrange
-        val type = "VkPay"
+        val type = TypeOfCardOrAmountEnum.VKPAY
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -116,7 +116,7 @@ class MainKtTest {
     @Test
     fun transfer_VkPay_outLimit_MonthLimit2() {
         //arrange
-        val type = "VkPay"
+        val type = TypeOfCardOrAmountEnum.VKPAY
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -138,7 +138,7 @@ class MainKtTest {
     @Test
     fun transfer_Master_Zero() {
         //arrange
-        val type = "Mastercard"
+        val type = TypeOfCardOrAmountEnum.MASTERCARD
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -159,7 +159,7 @@ class MainKtTest {
     @Test
     fun transfer_Master_outLimit_DayLimit1() {
         //arrange
-        val type = "Mastercard"
+        val type = TypeOfCardOrAmountEnum.MASTERCARD
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -183,7 +183,7 @@ class MainKtTest {
     @Test
     fun transfer_Master_outLimit_DayLimit2() {
         //arrange
-        val type = "Mastercard"
+        val type = TypeOfCardOrAmountEnum.MASTERCARD
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -207,7 +207,7 @@ class MainKtTest {
     @Test
     fun transfer_Master_outLimit_MonthLimit() {
         //arrange
-        val type = "Mastercard"
+        val type = TypeOfCardOrAmountEnum.MASTERCARD
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -231,7 +231,7 @@ class MainKtTest {
     @Test
     fun transfer_Master_inLimit_MoreThenMaxAdvActionLimit_Exec() {
         //arrange
-        val type = "Mastercard"
+        val type = TypeOfCardOrAmountEnum.MASTERCARD
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -255,7 +255,7 @@ class MainKtTest {
     @Test
     fun transfer_Master_inLimit_LowThenMaxAdvActionLimit_Exec() {
         //arrange
-        val type = "Mastercard"
+        val type = TypeOfCardOrAmountEnum.MASTERCARD
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -281,7 +281,7 @@ class MainKtTest {
     @Test
     fun transfer_Maestro_Zero() {
         //arrange
-        val type = "Maestro"
+        val type = TypeOfCardOrAmountEnum.MAESTRO
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -302,7 +302,7 @@ class MainKtTest {
     @Test
     fun transfer_Maestro_outLimit_DayLimit1() {
         //arrange
-        val type = "Maestro"
+        val type = TypeOfCardOrAmountEnum.MAESTRO
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -326,7 +326,7 @@ class MainKtTest {
     @Test
     fun transfer_Maestro_outLimit_DayLimit2() {
         //arrange
-        val type = "Maestro"
+        val type = TypeOfCardOrAmountEnum.MAESTRO
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -350,7 +350,7 @@ class MainKtTest {
     @Test
     fun transfer_Maestro_outLimit_MonthLimit() {
         //arrange
-        val type = "Maestro"
+        val type = TypeOfCardOrAmountEnum.MAESTRO
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -374,7 +374,7 @@ class MainKtTest {
     @Test
     fun transfer_Maestro_inLimit_MoreThenMaxAdvActionLimit_Exec() {
         //arrange
-        val type = "Maestro"
+        val type = TypeOfCardOrAmountEnum.MAESTRO
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -398,7 +398,7 @@ class MainKtTest {
     @Test
     fun transfer_Maestro_inLimit_LowThenMaxAdvActionLimit_Exec() {
         //arrange
-        val type = "Maestro"
+        val type = TypeOfCardOrAmountEnum.MAESTRO
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -424,7 +424,7 @@ class MainKtTest {
     @Test
     fun transfer_Mir_OutLimit_LowThenCardVisaMirMinimum() {
         //arrange
-        val type = "Mir"
+        val type = TypeOfCardOrAmountEnum.MIR
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -448,7 +448,7 @@ class MainKtTest {
     @Test
     fun transfer_Mir_OutLimit_MoreCardDayLimit1() {
         //arrange
-        val type = "Mir"
+        val type = TypeOfCardOrAmountEnum.MIR
         val dayAmount = 400
         val monthAmount = 0
         val executedAmount = 0
@@ -472,7 +472,7 @@ class MainKtTest {
     @Test
     fun transfer_Mir_OutLimit_MoreCardDayLimit2() {
         //arrange
-        val type = "Mir"
+        val type = TypeOfCardOrAmountEnum.MIR
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -496,7 +496,7 @@ class MainKtTest {
     @Test
     fun transfer_Mir_OutLimit_MoreCardMonthLimit1() {
         //arrange
-        val type = "Mir"
+        val type = TypeOfCardOrAmountEnum.MIR
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -520,7 +520,7 @@ class MainKtTest {
     @Test
     fun transfer_Mir_OutLimit_MoreCardMonthLimit2() {
         //arrange
-        val type = "Mir"
+        val type = TypeOfCardOrAmountEnum.MIR
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -544,7 +544,7 @@ class MainKtTest {
     @Test
     fun transfer_Mir_OutLimit_MoreCardMonthLimit3() {
         //arrange
-        val type = "Mir"
+        val type = TypeOfCardOrAmountEnum.MIR
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -568,7 +568,7 @@ class MainKtTest {
     @Test
     fun transfer_Mir_InLimit_MoreCardMonthLimit() {
         //arrange
-        val type = "Mir"
+        val type = TypeOfCardOrAmountEnum.MIR
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -594,7 +594,7 @@ class MainKtTest {
     @Test
     fun transfer_Visa_OutLimit_LowThenCardVisaMirMinimum() {
         //arrange
-        val type = "Visa"
+        val type = TypeOfCardOrAmountEnum.VISA
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -618,7 +618,7 @@ class MainKtTest {
     @Test
     fun transfer_Visa_OutLimit_MoreCardDayLimit1() {
         //arrange
-        val type = "Visa"
+        val type = TypeOfCardOrAmountEnum.VISA
         val dayAmount = 400
         val monthAmount = 0
         val executedAmount = 0
@@ -642,7 +642,7 @@ class MainKtTest {
     @Test
     fun transfer_Visa_OutLimit_MoreCardDayLimit2() {
         //arrange
-        val type = "Visa"
+        val type = TypeOfCardOrAmountEnum.VISA
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -666,7 +666,7 @@ class MainKtTest {
     @Test
     fun transfer_Visa_OutLimit_MoreCardMonthLimit1() {
         //arrange
-        val type = "Visa"
+        val type = TypeOfCardOrAmountEnum.VISA
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -690,7 +690,7 @@ class MainKtTest {
     @Test
     fun transfer_Visa_OutLimit_MoreCardMonthLimit2() {
         //arrange
-        val type = "Visa"
+        val type = TypeOfCardOrAmountEnum.VISA
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -714,7 +714,7 @@ class MainKtTest {
     @Test
     fun transfer_Visa_OutLimit_MoreCardMonthLimit3() {
         //arrange
-        val type = "Visa"
+        val type = TypeOfCardOrAmountEnum.VISA
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -738,7 +738,7 @@ class MainKtTest {
     @Test
     fun transfer_Visa_InLimit() {
         //arrange
-        val type = "Visa"
+        val type = TypeOfCardOrAmountEnum.VISA
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -789,7 +789,7 @@ class MainKtTest {
     @Test
     fun transfer_IncorrectType_Null() {
         //arrange
-        val type = ""
+        val type = TypeOfCardOrAmountEnum.UNDEFINED
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -813,7 +813,7 @@ class MainKtTest {
     @Test
     fun transfer_NoParameters() {
         //arrange
-        val type = ""
+        val type = TypeOfCardOrAmountEnum.UNDEFINED
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -832,7 +832,7 @@ class MainKtTest {
     @Test
     fun transfer_NoParameters_VkPay() {
         //arrange
-        val type = "VkPay"
+        val type = TypeOfCardOrAmountEnum.VKPAY
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -851,7 +851,7 @@ class MainKtTest {
     @Test
     fun transfer_NoParameters_Mir() {
         //arrange
-        val type = "Mir"
+        val type = TypeOfCardOrAmountEnum.MIR
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -870,7 +870,7 @@ class MainKtTest {
     @Test
     fun transfer_NoParameters_Visa() {
         //arrange
-        val type = "Visa"
+        val type = TypeOfCardOrAmountEnum.VISA
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -890,7 +890,7 @@ class MainKtTest {
     @Test
     fun transfer_NoParameters_Mastercard() {
         //arrange
-        val type = "Mastercard"
+        val type = TypeOfCardOrAmountEnum.MASTERCARD
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -909,7 +909,7 @@ class MainKtTest {
     @Test
     fun transfer_NoParameters_Maestro() {
         //arrange
-        val type = "Maestro"
+        val type = TypeOfCardOrAmountEnum.MAESTRO
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0
@@ -929,7 +929,7 @@ class MainKtTest {
     @Test
     fun transfer_NoParameters1() {
         //arrange
-        val type = "ZZZ"
+        val type = TypeOfCardOrAmountEnum.UNDEFINED
         val dayAmount = 0
         val monthAmount = 0
         val executedAmount = 0

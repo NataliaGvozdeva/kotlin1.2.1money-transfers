@@ -27,11 +27,16 @@ fun main() {
     ) {
 
         val fullNameOfTransferType = when (typeOfCardOrAccount) {
-            "mc" -> "Mastercard"
-            "mo" -> "Maestro"
-            "v" -> "Visa"
-            "m" -> "Mir"
-            "vk" -> "VkPay"
+            "mc" -> TypeOfCardOrAmountEnum.MASTERCARD
+            "mo" -> TypeOfCardOrAmountEnum.MAESTRO
+            "v" ->  TypeOfCardOrAmountEnum.VISA
+            "m" ->  TypeOfCardOrAmountEnum.MIR
+            "vk" -> TypeOfCardOrAmountEnum.VKPAY
+//            "mc" -> "Mastercard"
+//            "mo" -> "Maestro"
+//            "v" -> "Visa"
+//            "m" -> "Mir"
+//            "vk" -> "VkPay"
             else -> {
                 println("Неверный тип перевода")
                 return
@@ -54,7 +59,7 @@ fun main() {
 }
 
 fun checkVkPayLimits(
-    fullNameOfTransferType: String,
+    fullNameOfTransferType: TypeOfCardOrAmountEnum,
     currentDayAmount: Int,
     currentMonthAmount: Int,
     currentExecutedAmount: Int
@@ -78,7 +83,7 @@ fun checkVkPayLimits(
 
 
 fun transferMasterMaestro(
-    typeOfCardOrAccount: String,
+    typeOfCardOrAccount: TypeOfCardOrAmountEnum,
     currentMonthAmount: Int = 0,
     currentDayAmount: Int = 0,
     currentExecutedAmount: Int = 0
@@ -107,7 +112,7 @@ fun transferMasterMaestro(
 }
 
 fun transferVisaMir(
-    typeOfCardOrAccount: String,
+    typeOfCardOrAccount: TypeOfCardOrAmountEnum,
     currentMonthAmount: Int = 0,
     currentDayAmount: Int = 0,
     currentExecutedAmount: Int = 0
@@ -147,25 +152,24 @@ fun transferVisaMir(
 }
 
 fun transfer(
-    typeOfCardOrAccount: String = "VkPay",
+    typeOfCardOrAccount: TypeOfCardOrAmountEnum = TypeOfCardOrAmountEnum.VKPAY,
     currentDayAmount: Int = 0,
     currentMonthAmount: Int = 0,
     currentExecutedAmount: Int = 0
-): Int {
-    val comission = when (typeOfCardOrAccount) {
-        "Mastercard", "Maestro" -> transferMasterMaestro(
+): Int =  when (typeOfCardOrAccount) {
+    TypeOfCardOrAmountEnum.MASTERCARD,TypeOfCardOrAmountEnum.MAESTRO -> transferMasterMaestro(
             typeOfCardOrAccount,
             currentMonthAmount,
             currentDayAmount,
             currentExecutedAmount
         )
-        "Visa", "Mir" -> transferVisaMir(
+    TypeOfCardOrAmountEnum.VISA,TypeOfCardOrAmountEnum.MIR -> transferVisaMir(
             typeOfCardOrAccount,
             currentMonthAmount,
             currentDayAmount,
             currentExecutedAmount
         )
-        "VkPay" -> checkVkPayLimits(
+    TypeOfCardOrAmountEnum.VKPAY -> checkVkPayLimits(
             typeOfCardOrAccount,
             currentMonthAmount,
             currentDayAmount,
@@ -173,5 +177,3 @@ fun transfer(
         )
         else -> -1
     }
-    return comission
-}
